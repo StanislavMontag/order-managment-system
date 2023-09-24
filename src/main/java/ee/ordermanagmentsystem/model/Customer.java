@@ -8,17 +8,13 @@ import jakarta.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.SuperBuilder;
 
 @Entity
 @Getter
 @Setter
-@ToString
-@SuperBuilder
-@NoArgsConstructor
+@RequiredArgsConstructor
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,6 +25,5 @@ public class Customer {
     private String telephone;
 
     @OneToMany(mappedBy = "customer")
-    @ToString.Exclude
     private List<Order> orders = new ArrayList<>();
 }

@@ -1,5 +1,7 @@
 package ee.ordermanagmentsystem.service;
 
+import ee.ordermanagmentsystem.dto.CustomerDTO;
+import ee.ordermanagmentsystem.mapper.CustomerMapper;
 import ee.ordermanagmentsystem.model.Customer;
 import ee.ordermanagmentsystem.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
@@ -9,9 +11,17 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class CustomerService {
     private CustomerRepository customerRepository;
+    private CustomerMapper customerMapper;
 
-    public Customer createCustomer(Customer customer) {
-        return customerRepository.save(customer);
+    /**
+     * Creates new customer based on DTO object accepted and saves it to db
+     * @param customerDTO The UserDto object to be saved as a User entity.
+     * @return the saved Customer entity as a CustomerDTO object
+     */
+    public CustomerDTO createCustomer(CustomerDTO customerDTO) {
+        Customer customer = customerMapper.toEntity(customerDTO);
+        customer = customerRepository.save(customer);
+        return customerMapper.toDTO(customer);
     }
 }
 
