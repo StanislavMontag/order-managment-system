@@ -11,15 +11,13 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.SuperBuilder;
 
 @Entity
 @Getter
 @Setter
-@SuperBuilder
-@NoArgsConstructor
+@RequiredArgsConstructor
 @Table(name = "order_table")
 public class Order {
     @Id
