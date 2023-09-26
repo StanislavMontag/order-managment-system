@@ -1,4 +1,4 @@
-package ee.evaluatingtask.ordermanagmentsystem;
+package ee.ordermanagmentsystem;
 
 import ee.ordermanagmentsystem.dto.CustomerDTO;
 import ee.ordermanagmentsystem.mapper.CustomerMapper;
@@ -54,8 +54,8 @@ public class CustomerServiceTest {
         assertEquals("john.doe@example.com", result.getEmail());
         assertEquals("123-456-7890", result.getTelephone());
 
-        verify(customerMapper, times(1)).toEntity(dto);
-        verify(customerRepository, times(1)).save(customer);
-        verify(customerMapper, times(1)).toDTO(customer);
+        verify(customerMapper).toEntity(dto);
+        verify(customerRepository).save(customer);
+        verify(customerMapper).toDTO(customer);
     }
 }

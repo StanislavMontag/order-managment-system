@@ -25,6 +25,7 @@ public abstract class OrderMapper {
             @Mapping(target = "customer", expression = "java(mapCustomer(orderDTO.getCustomerId()))"),
             @Mapping(target = "orderLines", source = "orderLines")
     })
+    @Mapping(target = "submissionDate", ignore = true)
     public abstract Order toEntity(OrderDTO orderDTO);
 
     @Mapping(source = "customer.id", target = "customerId")
@@ -35,6 +36,7 @@ public abstract class OrderMapper {
             @Mapping(target = "id", ignore = true),
             @Mapping(target = "product", expression = "java(mapProduct(orderLineDTO.getProductId()))")
     })
+    @Mapping(target = "order", ignore = true)
     public abstract OrderLine orderLineToEntity(OrderLineDTO orderLineDTO);
 
     @Mapping(source = "product.id", target = "productId")
