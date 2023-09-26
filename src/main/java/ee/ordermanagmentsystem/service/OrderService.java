@@ -9,6 +9,7 @@ import ee.ordermanagmentsystem.repository.specification.OrderSpecification;
 import jakarta.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -30,8 +31,9 @@ public class OrderService {
         return orderMapper.toDTO(order);
     }
 
-    public List<Order> getOrdersByDate(LocalDate submissionDate) {
-        return orderRepository.findBySubmissionDate(submissionDate);
+    public List<OrderDTO> getOrdersByDate(LocalDate submissionDate) {
+        List<Order> orders = orderRepository.findBySubmissionDate(submissionDate);
+        return orders.stream().map(orderMapper::toDTO).collect(Collectors.toList());
     }
 
     public List<Order> searchByProductNameWithJPQL(String productName) {

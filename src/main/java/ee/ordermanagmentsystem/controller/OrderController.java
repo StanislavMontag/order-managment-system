@@ -1,7 +1,6 @@
 package ee.ordermanagmentsystem.controller;
 
 import ee.ordermanagmentsystem.dto.OrderDTO;
-import ee.ordermanagmentsystem.model.Order;
 import ee.ordermanagmentsystem.service.OrderService;
 import java.time.LocalDate;
 import java.util.List;
@@ -28,9 +27,9 @@ public class OrderController {
     }
 
     @GetMapping("/by-date")
-    public ResponseEntity<List<Order>> getOrdersByDate(@RequestParam String date) {
+    public ResponseEntity<List<OrderDTO>> getOrdersByDate(@RequestParam String date) {
         LocalDate submissionDate = LocalDate.parse(date);  // assumes date format as "yyyy-MM-dd"
-        List<Order> orders = orderService.getOrdersByDate(submissionDate);
-        return ResponseEntity.ok(orders);
+        List<OrderDTO> orderDTOs = orderService.getOrdersByDate(submissionDate);
+        return ResponseEntity.ok(orderDTOs);
     }
 }
