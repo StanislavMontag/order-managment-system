@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class CustomerService {
-    private CustomerRepository customerRepository;
-    private CustomerMapper customerMapper;
+    private final CustomerRepository customerRepository;
+    private final CustomerMapper customerMapper;
 
     /**
      * Creates new customer based on DTO object accepted and saves it to db

@@ -1,7 +1,7 @@
 databaseChangeLog:
   - changeSet:
       id: 1
-      author: Stanislav M
+      author: Stanislav
       changes:
         - createTable:
             tableName: customer
@@ -14,10 +14,10 @@ databaseChangeLog:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: registrationCode
+                  name: registration_code
                   type: varchar(255)
               - column:
-                  name: fullName
+                  name: full_name
                   type: varchar(255)
               - column:
                   name: email
@@ -40,10 +40,10 @@ databaseChangeLog:
                   name: name
                   type: varchar(255)
               - column:
-                  name: skuCode
+                  name: sku_code
                   type: varchar(255)
               - column:
-                  name: unitPrice
+                  name: unit_price
                   type: decimal(19, 2)
 
         - createTable:
@@ -57,7 +57,7 @@ databaseChangeLog:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: dateOfSubmission
+                  name: submission_date
                   type: date
               - column:
                   name: customer_id

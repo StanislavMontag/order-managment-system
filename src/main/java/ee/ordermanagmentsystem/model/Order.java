@@ -1,5 +1,6 @@
 package ee.ordermanagmentsystem.model;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -8,7 +9,6 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -26,8 +26,9 @@ public class Order {
 
     @ManyToOne
     private Customer customer;
+
     private LocalDate submissionDate;
 
-    @OneToMany(mappedBy = "order")
-    private List<OrderLine> orderLines = new ArrayList<>();
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    private List<OrderLine> orderLines;
 }

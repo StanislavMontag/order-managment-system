@@ -11,12 +11,14 @@ import ee.ordermanagmentsystem.repository.ProductRepository;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
+import org.springframework.beans.factory.annotation.Autowired;
+
 
 @Mapper(componentModel = "spring")
 public abstract class OrderMapper {
-
+    @Autowired
     private CustomerRepository customerRepository;
-
+    @Autowired
     private ProductRepository productRepository;
 
     // Mapping between OrderDTO and Order entity
@@ -25,7 +27,6 @@ public abstract class OrderMapper {
             @Mapping(target = "customer", expression = "java(mapCustomer(orderDTO.getCustomerId()))"),
             @Mapping(target = "orderLines", source = "orderLines")
     })
-    @Mapping(target = "submissionDate", ignore = true)
     public abstract Order toEntity(OrderDTO orderDTO);
 
     @Mapping(source = "customer.id", target = "customerId")
