@@ -6,6 +6,8 @@ This repository contains the source code for an order management system API. It 
 
 - [API Endpoints](#api-endpoints)
 - [Usage](#usage)
+- [Database Migration and Test Data](#database-migration-and-test-data)
+- [Usage Note](#usage-note)
 
 ## API Endpoints
 
@@ -20,4 +22,12 @@ This repository contains the source code for an order management system API. It 
 
 ## Usage
 
-The Order Management System API allows users to manage orders and related entities. Users can create new customers, products, and orders. They can also retrieve orders based on submission date, search for orders by product name, and update the quantity of products in an order line.
+The Order Management System API allows users to manage orders and related entities. Users can create new customers, products, and orders. They can also retrieve orders based on submission date, search for orders by product name, and update the quantity of products in an order line. The service uses Liquibase as db migration tool and inserting initial test data. To use search options you need to create order first.
+
+## Database Migration and Test Data
+
+The service employs Liquibase as its database migration tool. Initial test data is also inserted using Liquibase.
+
+## Usage Note
+
+To utilize the search options, it's essential to create an order first.
