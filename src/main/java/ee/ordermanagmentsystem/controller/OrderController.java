@@ -7,9 +7,9 @@ import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,17 +35,22 @@ public class OrderController {
         return ResponseEntity.ok(orderDTOs);
     }
 
-    @GetMapping("/by-product")
+    @GetMapping("/by-product/jpql")
     public ResponseEntity<List<OrderDTO>> searchOrdersByProductName(@RequestParam String product) {
         List<OrderDTO> orders = orderService.searchByProductNameWithJPQL(product);
         return ResponseEntity.ok(orders);
     }
+    @GetMapping("/by-product/criteria")
+    public ResponseEntity<List<OrderDTO>> searchorderByProductName(@RequestParam String product) {
+        List<OrderDTO> orders = orderService.searchByProductNameWithCriteria(product);
+        return ResponseEntity.ok(orders);
+    }
 
-    @PutMapping("/{orderId}/order-lines/{orderLineId}/quantity")
-    public ResponseEntity<OrderDTO> updateOrderLineQuantity(
+    @PatchMapping("/{orderId}/order-lines/{orderLineId}/quantity")
+    public ResponseEntity<?> updateOrderLineQuantity(
             @PathVariable Long orderId,
             @PathVariable Long orderLineId,
-            @RequestParam int newQuantity) {
+            @RequestParam Integer newQuantity) {
         OrderDTO updatedOrder = orderService.updateOrderLineQuantity(orderId, orderLineId, newQuantity);
         return ResponseEntity.ok(updatedOrder);
     }

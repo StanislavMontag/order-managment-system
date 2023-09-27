@@ -42,8 +42,9 @@ public class OrderService {
         return orders.stream().map(orderMapper::toDTO).collect(Collectors.toList());
     }
 
-    public List<Order> searchByProductNameWithCriteria(String productName) {
-        return orderRepository.findAll(OrderSpecification.hasProductName(productName));
+    public List<OrderDTO> searchByProductNameWithCriteria(String productName) {
+        List<Order> orders = orderRepository.findAll(OrderSpecification.hasProductName(productName));
+        return orders.stream().map(orderMapper::toDTO).collect(Collectors.toList());
     }
 
     public OrderDTO updateOrderLineQuantity(Long orderId, Long orderLineId, int newQuantity) {

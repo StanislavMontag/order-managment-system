@@ -1,0 +1,110 @@
+databaseChangeLog:
+  - changeSet:
+      id: 02-insert-test-data
+      author: Stanislav
+      changes:
+        - insert:
+            tableName: customer
+            columns:
+              - column:
+                  name: registration_code
+                  value: RC2106
+              - column:
+                  name: full_name
+                  value: Conn Gorstidge
+              - column:
+                  name: email
+                  value: cgorstidge0@china.com.cn
+              - column:
+                  name: telephone
+                  value: +43 191 375 8226
+        - insert:
+            tableName: customer
+            columns:
+              - column:
+                  name: registration_code
+                  value: RC3402
+              - column:
+                  name: full_name
+                  value: Gloriana Parkin
+              - column:
+                  name: email
+                  value: gparkin1@pbs.org
+              - column:
+                  name: telephone
+                  value: +62 813 690 2436
+        - insert:
+            tableName: customer
+            columns:
+              - column:
+                  name: registration_code
+                  value: RC8426
+              - column:
+                  name: full_name
+                  value: Morna O'' Driscoll
+              - column:
+                  name: email
+                  value: mo2@freewebs.com
+              - column:
+                  name: telephone
+                  value: +46 910 838 8561
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: name
+                  value: Plasticspoonblack
+              - column:
+                  name: sku_code
+                  value: N3BDZ7A7
+              - column:
+                  name: unit_price
+                  value: 5.2
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: name
+                  value: Bag Clear 7 Lb
+              - column:
+                  name: sku_code
+                  value: I7VI6FP2
+              - column:
+                  name: unit_price
+                  value: 1.6
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: name
+                  value: FlowerPotmums
+              - column:
+                  name: sku_code
+                  value: D8B8EN50
+              - column:
+                  name: unit_price
+                  value: 8.97
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: name
+                  value: Toothpick Frilled
+              - column:
+                  name: sku_code
+                  value: ASZ593B2
+              - column:
+                  name: unit_price
+                  value: 9.83
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: name
+                  value: Rice Jasmine Sented
+              - column:
+                  name: sku_code
+                  value: 541A7025
+              - column:
+                  name: unit_price
+                  value: 4.38
