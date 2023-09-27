@@ -14,9 +14,10 @@ public class CustomerService {
     private final CustomerMapper customerMapper;
 
     /**
-     * Creates new customer based on DTO object accepted and saves it to db
-     * @param customerDTO The UserDto object to be saved as a User entity.
-     * @return the saved Customer entity as a CustomerDTO object
+     * Creates a new customer based on provided DTO
+     *
+     * @param customerDTO The data transfer object representing the customer details.
+     * @return the created CustomerDTO
      */
     public CustomerDTO createCustomer(CustomerDTO customerDTO) {
         Customer customer = customerMapper.toEntity(customerDTO);
