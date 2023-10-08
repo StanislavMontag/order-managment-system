@@ -9,7 +9,6 @@ import org.mapstruct.Mapping;
 public interface CustomerMapper {
     CustomerDTO toDTO(Customer customer);
 
-    @Mapping(target = "id", ignore = true)
     @Mapping(target = "orders", ignore = true)
     Customer toEntity(CustomerDTO customerDTO);
 }

@@ -30,10 +30,11 @@ public class ProductServiceTest {
     @Test
     public void testCreateProduct() {
 
-        ProductDTO dto = new ProductDTO();
-        dto.setName("Test Product");
-        dto.setSkuCode("TP123");
-        dto.setUnitPrice(new BigDecimal("99.99"));
+        ProductDTO dto = ProductDTO.builder()
+                .name("Test Product")
+                .skuCode("TP123")
+                .unitPrice(new BigDecimal("99.99"))
+                .build();
 
         Product product = new Product();
         product.setId(1L);

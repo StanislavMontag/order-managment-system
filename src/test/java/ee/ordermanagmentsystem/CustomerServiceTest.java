@@ -29,11 +29,11 @@ public class CustomerServiceTest {
     @Test
     public void testCreateCustomer() {
 
-        CustomerDTO dto = new CustomerDTO();
-        dto.setRegistrationCode("RC1234");
-        dto.setFullName("John Doe");
-        dto.setEmail("john.doe@example.com");
-        dto.setTelephone("123-456-7890");
+        CustomerDTO dto = CustomerDTO.builder()
+                .registrationCode("RC1234")
+                .fullName("John Doe")
+                .email("john.doe@example.com")
+                .telephone("123-456-7890").build();
 
         Customer customer = new Customer();
         customer.setId(1L);
